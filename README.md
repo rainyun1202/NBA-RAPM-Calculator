@@ -6,7 +6,7 @@ The calculations are based on data retrieved from a MySQL database.
 
 ## Requirements
 
-- Python 3.8
+- Python
 - Conda
 - Docker
 
@@ -92,21 +92,10 @@ The `matchups` table in the `nba_api` database should contain the following colu
 
 ### Running the Script
 
-The SQL file includes per possession data from 1997 to 2024. To calculate the RAPM for a specific season or range of seasons, run the rapm.py script with the necessary parameters.
-
-### Example
-
-To calculate the RAPM for the 2022 season:
-
-```python
-calculate_rapm('2022', db_password='your_password_here')
-```
-
-To calculate the RAPM for multiple seasons with custom weights:
-
-```python
-calculate_rapm(['2021', '2022'], season_weights={'2021': 0.5, '2022': 1.0}, db_password='your_password_here')
-```
+The SQL file includes per possession data from 1997 to 2024.
+(The per-possession data has been extracted from the SQL database and saved as CSV files. These CSV files are available on GitHub and can be directly used for RAPM calculations. If you need CSV files for other periods, you can use the nba_sql_to_csv.py script to generate them yourself)
+To calculate the RAPM for a specific season or range of seasons, run the rapm_by_csv.py script with the necessary parameters.
+Run the script to calculate group APM and save the results to CSV files: groupapm_by_csv.py
 
 ## Output
 
