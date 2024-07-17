@@ -90,12 +90,13 @@ The `matchups` table in the `nba_api` database should contain the following colu
 - `h1`, `h2`, `h3`, `h4`, `h5` (integers): Player IDs for the home team.
 - `season` (string): Season identifier (e.g., '2022').
 
-### Running the Script
+### Database Describe
 
-The SQL file includes per possession data from 1997 to 2024.
-(The per-possession data has been extracted from the SQL database and saved as CSV files. These CSV files are available on GitHub and can be directly used for RAPM calculations. If you need CSV files for other periods, you can use the nba_sql_to_csv.py script to generate them yourself)
-To calculate the RAPM for a specific season or range of seasons, run the rapm_by_csv.py script with the necessary parameters.
-Run the script to calculate group APM and save the results to CSV files: groupapm_by_csv.py
+- The SQL file includes per possession data from 1997 to 2024.
+- The per-possession data has been extracted from the SQL database and saved as CSV files. These CSV files are available in the data folder on GitHub and can be directly used for RAPM calculations.
+- If you need CSV files for other periods, you can use the nba_sql_to_csv.py script to generate them yourself.
+- To calculate the RAPM for a specific season or range of seasons, run the rapm_by_csv.py script with the necessary parameters.
+- Run the script to calculate group APM: groupapm_by_csv.py
 
 ## Output
 
