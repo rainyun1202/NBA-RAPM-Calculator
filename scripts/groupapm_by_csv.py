@@ -75,12 +75,12 @@ def calculate_apm_from_csv(season: str, alphas: List[int],
         def_players = away_players if item.home_poss else home_players
         
         if min_appearances is not None:
-            # 必須兩個組合出場次數都大於 min_appearances 才考慮
+            # Only consider player pairs with appearances greater than min_appearances in both lineups
             # if off_players in col_to_group.values() and def_players in col_to_group.values():
             #     X[counter, group_to_col[off_players]] = 1
             #     X[counter, group_to_col[def_players]] = -1
                 
-            # 出場次數大於 min_appearances 的組合就會被考慮，可能出現只有一隊被放入 X 的情況
+            # Groups with appearances greater than min_appearances will be considered
             if off_players in col_to_group.values():
                 X[counter, group_to_col[off_players]] = 1
             if def_players in col_to_group.values():
@@ -103,7 +103,8 @@ def calculate_apm_from_csv(season: str, alphas: List[int],
             apm = beta_ridge[idx]*100
             writer.writerow([group, apm, appearances])
 
-# 直接計算 APM 再刪除出場次數低的組合，精準度比先刪除出場度低的組合再算 APM 高
+# Calculate APM directly before removing pairs with low appearances.
+# This approach improves precision compared to removing low appearance pairs before calculating APM.
 seasons = [str(season) for season in range(2014, 2023)]
 for season in seasons:
     calculate_apm_from_csv(season, alphas=[0.0000001], min_appearances = None)
