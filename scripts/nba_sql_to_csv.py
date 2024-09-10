@@ -7,9 +7,7 @@ columns = ['home_poss', 'pts', 'a1', 'a2', 'a3', 'a4', 'a5',
 db_password = 'your_password_here'
 
 def fetch_season_data(season):
-    """
-    Fetches NBA per poss data for a given season.
-    """
+    """Fetches NBA per poss data for a given season."""
     query = """
         SELECT home_poss, pts, a1, a2, a3, a4, a5,
         h1, h2, h3, h4, h5, season FROM matchups WHERE season = %s

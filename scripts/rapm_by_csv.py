@@ -58,7 +58,7 @@ def calculate_rapm_from_csv(season: str, alphas: List[int],
     y = np.zeros(len(all_data))
 
     if min_appearances is not None:          
-        cols_to_keep = [idx for idx, player in col_to_player.items() if player_appearances[player] >= min_appearances]
+        cols_to_keep  = [idx for idx, player in col_to_player.items() if player_appearances[player] >= min_appearances]
         col_to_player = {i: col_to_player[idx] for i, idx in enumerate(cols_to_keep)}
         player_to_col = {}
         for i, player in col_to_player.items():
